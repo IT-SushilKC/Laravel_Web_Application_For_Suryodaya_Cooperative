@@ -14,16 +14,9 @@
                             </div>
                         </div>
                     </div>
-                    
-                    @if ( Session::get('post'))
-					  
-                    <div class="alert alert-primary">
-							{{ Session::get('post') }}
-						</div>
-					
-					@endif
+                
                     <div class="panel-body">
-                        <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal"  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="file" class="col-md-4 control-label" >Image</label>

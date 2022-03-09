@@ -6,10 +6,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 d-xl-inline">
                                 <h4>Add New Slide</h4>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 d-xl-inline">
                                 <a href="{{route('admin.slidershow')}}" class="btn btn-success">All Slides</a>
                             </div>
                         </div>
@@ -23,19 +23,20 @@
 					
 					@endif
                     <div class="panel-body">
-                        <form class="form-horizontal" action="addsliders" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" class="form-group" action="addsliders" method="POST" enctype="multipart/form-data">
                             @csrf
+                            
                             <div class="form-group">
-                                <label for="file" class="col-md-4 control-label" >Image</label>
-                                <div class="col-md-4">
-                                    <input type="file" name="file" class="input-file" id="filesPrev" required />
+                                <label for="file" class="col-md-4 control-label " >Image</label>
+                                <div class="col-md-4 ">
+                                    <input type="file" name="file" class="custom-file" id="filesPrev" required />
                                     <img id="previewImg" alt="slide Image" style="max-width: 130px; margin-top:20px;">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <label class="col-md-4 control-label" >Status</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="status">
+                                    <select class="form-control " name="status">
                                         <option value="o" >Inactive</option>
                                         <option value="1" >Active</option>
                                     </select>

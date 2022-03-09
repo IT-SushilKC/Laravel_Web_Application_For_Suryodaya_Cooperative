@@ -9,7 +9,5 @@ class News extends Model
 {
     use HasFactory;
     protected $table = "news";
-    public function setCreated_atAttribute($value){
-        $this->attributes['created_at'] = date($value);
-    }
+ 
 }

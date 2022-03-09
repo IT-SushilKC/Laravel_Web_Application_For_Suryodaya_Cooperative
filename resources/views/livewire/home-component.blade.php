@@ -1,40 +1,40 @@
-
-@if ( Session::get('userlogin-successfully'))
-					    <div class="alert alert-primary">
-							{{ Session::get('userlogin-successfully') }}
-						</div>
+@if (Session::get('userlogin-successfully'))
+    <div class="alert alert-primary">
+        {{ Session::get('userlogin-successfully') }}
+    </div>
 @endif
 <div class="main">
     <!--Carousel Section-->
     <section class="hero">
-        <div id="carouselExampleSlidesOnly" class="carousel slide"  data-ride="carousel">
-        
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+
             <div class="carousel-inner">
-            @foreach($sliders as $item)
-                <div class="carousel-item {{$item->status==1?'active':''}}">   
-                <img class="img-slider text-align-center" src="{{asset('./asset/img/slider')}}/{{$item->image}}" alt="Los Angeles"/>
-                </div>
+                @foreach ($sliders as $item)
+                    <div class="carousel-item {{ $item->status == 1 ? 'active' : '' }}">
+                        <img class="img-slider text-align-center"
+                            src="{{ asset('./asset/img/slider') }}/{{ $item->image }}" alt="Los Angeles" />
+                    </div>
                 @endforeach
             </div>
             <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleSlidesOnly" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleSlidesOnly" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
         </div>
     </section>
     <section>
-        <div class="notice  wow slideInRight"data-wow-duration=".5s">
+        <div class="notice  wow slideInRight" data-wow-duration=".5s">
             <div class="notice-bar">
                 <h5 class="text-light text-center p-2 py-2">Notice</h5>
             </div>
             <div class="container container-xl notice-marquee">
-            @foreach($notice as $items)
-                <marquee behavior="" direction="right"><i class="fa fa-arrow-right mr-3"></i>
-                    {{$items->description}}
-            </marquee>
-            @endforeach
+                @foreach ($notice as $items)
+                    <marquee behavior="" direction="right"><i class="fa fa-arrow-right mr-3"></i>
+                        {{ $items->description }}
+                    </marquee>
+                @endforeach
             </div>
         </div>
     </section>
@@ -91,32 +91,36 @@
                             <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
                         </div>
                     </div>
-                    @foreach($homenews as $items)
-                    <div class="col-md-4">
-                        
-                        <div class="news-item wow slideInUp" data-wow-duration=".8s">
-                        
-                            <img class="img-fluid" src="{{asset('./asset/img/news')}}/{{$items->image}}" alt="">
-                            <div class="down-content">
-                                <div class="post-date"><i class="fa fa-calendar"></i>{{$items->created_at}}</div>
-                                <h4>
-                                {{\Illuminate\Support\Str::limit($items->title, 30)}}</h4>
-                                <p>{{\Illuminate\Support\Str::limit($items->description, 150)}}</p>
-                                <a href="single-news/{{$items->id}}" class="filled-button"><i class="fa fa-arrow-right mr-1"> </i>Read More</a>
-                            </div> 
-                        </div> 
-                      
-                    </div> @endforeach
-                   
-                    
-                </div>{{$homenews->links()}}
-               
+                    @foreach ($homenews as $items)
+                        <div class="col-md-4">
+
+                            <div class="news-item wow slideInUp" data-wow-duration=".8s">
+
+                                <img class="img-fluid" src="{{ asset('./asset/img/news') }}/{{ $items->image }}"
+                                    alt="">
+                                <div class="down-content">
+                                    <div class="post-date"><i class="fa fa-calendar"></i>
+                                        {{ \Carbon\Carbon::parse($items->created_at)->format('M d, Y') }}</div>
+                                    <h4>
+                                        {{ \Illuminate\Support\Str::limit($items->title, 30) }}</h4>
+                                    <p>{{ \Illuminate\Support\Str::limit($items->description, 150) }}</p>
+                                    <a href="single-news/{{ $items->id }}" class="filled-button"><i
+                                            class="fa fa-arrow-right mr-1"> </i>Read More</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    @endforeach
+
+
+                </div>{{ $homenews->links() }}
+
             </div>
-          
+
         </div>
-      
+
     </section>
- 
+
     <!-- =======Loans Section ======= -->
     <section id="loans" class="loans mt-5">
         <div class="container">
@@ -177,16 +181,19 @@
 
             <div class="row content">
                 <div class="col-md-4" data-aos="fade-right">
-                    <img src="{{asset('./asset/img/details-3.png')}}" class="img-fluid" alt="">
+                    <img src="{{ asset('./asset/img/details-3.png') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-8 pt-5" data-aos="fade-up">
                     <h3>ATM</h3>
-                    <p class="font-italic ">Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima
+                    <p class="font-italic ">Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia
+                        minima
                         quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
                     <ul class="details-color">
                         <li><i class="fa fa-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="fa fa-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><i class="fa fa-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
+                        <li><i class="fa fa-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.
+                        </li>
+                        <li><i class="fa fa-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.
+                        </li>
                     </ul>
                     <p class="details-color">
                         Qui consequatur temporibus. Enim et corporis sit sunt harum praesentium suscipit ut voluptatem.
@@ -201,7 +208,7 @@
 
             <div class="row content">
                 <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                    <img src="{{asset('./asset/img/details-4.png')}}" class="img-fluid" alt="">
+                    <img src="{{ asset('./asset/img/details-4.png') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
                     <h3>Mobile Banking Services</h3>
@@ -221,7 +228,8 @@
                         <li><i class="fa fa-check"></i> Et praesentium laboriosam architecto nam .</li>
                         <li><i class="fa fa-check"></i> Eius et voluptate. Enim earum tempore aliquid. Nobis et sunt
                             consequatur. Aut repellat in numquam velit quo dignissimos et.</li>
-                        <li><i class="fa fa-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
+                        <li><i class="fa fa-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -234,19 +242,19 @@
                     <div class="owl-partners owl-carousel">
 
                         <div class="partner-item">
-                            <img src="{{asset('./asset/img/ime.jpg')}}" title="1" alt="1">
+                            <img src="{{ asset('./asset/img/ime.jpg') }}" title="1" alt="1">
                         </div>
 
                         <div class="partner-item">
-                            <img src="{{asset('./asset/img/prabhu.jpg')}}" title="2" alt="2">
+                            <img src="{{ asset('./asset/img/prabhu.jpg') }}" title="2" alt="2">
                         </div>
 
                         <div class="partner-item">
-                            <img src="{{asset('./asset/img/samsara.jpg')}}" title="3" alt="3">
+                            <img src="{{ asset('./asset/img/samsara.jpg') }}" title="3" alt="3">
                         </div>
 
                         <div class="partner-item">
-                            <img src="{{asset('./asset/img/himal.jpg')}}" title="4" alt="4">
+                            <img src="{{ asset('./asset/img/himal.jpg') }}" title="4" alt="4">
                         </div>
 
                     </div>

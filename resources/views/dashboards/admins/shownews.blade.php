@@ -4,6 +4,16 @@
     <div class="container" style="padding: 30px 0">
         <div class="row">
             <div class="col-md-12">
+            @if ( Session::get('updatenews'))
+					    <div class="alert alert-primary">
+							{{ Session::get('updatenews') }}
+</div>
+                            @endif
+                        @if ( Session::get('deletenews'))
+					    <div class="alert alert-danger">
+							{{ Session::get('deletenews') }}
+						</div>
+					@endif
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
@@ -16,16 +26,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                    @if ( Session::get('updatenews'))
-					    <div class="alert alert-primary">
-							{{ Session::get('updatenews') }}
-
-                            @endif
-                        @if ( Session::get('deletenews'))
-					    <div class="alert alert-primary">
-							{{ Session::get('deletenews') }}
-						</div>
-					@endif
+                    
                                 <div class="table-responsive">
                                     <table class="table">
                                       <thead>

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{asset('./asset/Carousel/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('./asset/Carousel/owl.theme.default.min.css')}}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+    <link href="{{asset('./admin_asset/plugins/toaster/toastr.min.css')}}" rel="stylesheet" />
     @livewireStyles
 </head>
 

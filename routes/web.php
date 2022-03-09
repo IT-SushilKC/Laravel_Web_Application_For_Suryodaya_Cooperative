@@ -1,15 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\HomeComponent;
-use App\Http\Livewire\LoansFormComponent;
 use App\Http\Livewire\LoansComponent;
-
+use App\Http\Livewire\LoansApplyFormComponent;
+use App\Http\Livewire\NewsComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,13 +22,13 @@ use App\Http\Livewire\LoansComponent;
 
 
 Route::get('/', HomeComponent::class);
-Route::get('/loansform', LoansFormComponent::class);
+Route::get('loan',LoansApplyFormComponent::class)->name('livewire.loans-apply-form');
 Route::get('/loans', LoansComponent::class);
+Route::get('/news', NewsComponent::class);
 Route::middleware(['middleware'=>'PreventBackHistory'])->group(function () {
     Auth::routes();
 });
-
-
+Route::get('loanform',[AdminController::class, 'LoanForm'])->name('livewire.loansform');
 Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('/');
 Route::get('single-news/{id}', [AdminController::class, 'showSingleNews']);
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHistory']], function(){
@@ -45,7 +44,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHis
         //Notice Web 
         Route::get('addnotice', [AdminController::class, 'noticeIndex']);
         Route::post('addnotice', [AdminController::class, 'noticeStore'])->name('admin.addnotice');   
-        Route::get('shownotice', [AdminController::class, 'showNotice'])->name('admin.shownotice');  
+        Route::get('shownotice', [AdminController::class, 'showNotice'])->name('admin.shownotice'); 
+        Route::get('editnotice/{id}', [AdminController::class, 'editNoticePage']);
+        Route::post('editnotice/{id}', [AdminController::class, 'editNotice'])->name('admin.editnotice');  
 
         //Home News
         Route::get('shownews', [AdminController::class, 'NewsShow'])->name('admin.shownews');
@@ -55,11 +56,19 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHis
         Route::post('editnews/{id}', [AdminController::class, 'UpdateNews'])->name('admin.editnews');
         Route::get('deletenews/{id}', [AdminController::class, 'deleteNews'])->name('admin.deletenews');
 
+        //Download
+        Route::get('adddownload', [AdminController::class, 'showAddDownload'])->name('admin.adddownload');
+        Route::post('uploadfile', [AdminController::class, 'UploadFile'])->name('admin.uploadfile');
+        Route::post('showfile', [AdminController::class, 'ShowFilwDownload'])->name('admin.showfile');
+        Route::get('loanapplyform', [AdminController::class, 'ShowLoanForm'])->name('admin.loanapplyform');
+
+
+        //Customer About
+        Route::get('customer-about',[AdminController::class, 'CustomerAbout'])->name('admin.customer-about');
        
 });
 
 Route::group(['prefix'=>'user','middleware'=>['isUser','auth','PreventBackHistory']], function(){
     Route::get('/',[UserController::class,'index'])->name('/');
-   
     
 });

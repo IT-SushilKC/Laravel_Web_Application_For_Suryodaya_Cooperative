@@ -38,8 +38,7 @@
                                             <td>{{$i++}}</td>
                                             <td>{{$item->description}}</td>
                                            <td> 
-                                                <a href="" type="submit" class="btn btn-danger btn-sm">Delete</a>
-                                                <a href="" type="submit" class="btn btn-primary btn-sm">Edit</a>
+                                                <a href="/admin/editnotice/{{$item->id}}" type="submit" class="btn btn-primary btn-sm">Edit</a>
                                             </td>
                                         </tr>
                                         @endforeach
