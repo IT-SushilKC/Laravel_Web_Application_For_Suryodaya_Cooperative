@@ -141,10 +141,11 @@ a {
 .brand img {
     width: 80% !important;
     display: block;
-    background-color: var(--bolder-blue);
+
 }
 
-.navbar-brand:hover, .navbar-brand:focus {
+.navbar-brand:hover,
+.navbar-brand:focus {
     text-decoration: none;
 }
 
@@ -216,7 +217,7 @@ a {
         position: relative !important;
         justify-content: space-between !important;
         align-items: center !important;
-        background-color: var(--bolder-blue);
+
     }
 }
 
@@ -284,13 +285,17 @@ a {
     transition: 0.3s;
 }
 
-.navbar a i, .navbar a:focus i {
+.navbar a i,
+.navbar a:focus i {
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
 }
 
-.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover>a {
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
     color: #50d8af;
     text-decoration: none !important;
 }
@@ -326,7 +331,9 @@ a {
     font-size: 12px;
 }
 
-.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover>a {
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
     color: #50d8af;
     text-decoration: none !important;
 }
@@ -393,8 +400,8 @@ a {
     }
 
     .navbar a {
-        text-align: center!important;
-        align-items: center!important;
+        text-align: center !important;
+        align-items: center !important;
         color: var(--bolder-blue) !important;
     }
 
@@ -468,13 +475,18 @@ a {
   # Carousel
   --------------------------------------------------------------*/
 .carousel-inner img {
-    height: 80vh !important;
-    width: 100% !important;
+
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: cover!important;
+    background-position: top center;
     background-color: var(--bolder-blue);
+
+    height: 600px;
+    position: relative;
+    width: 100%;
+    z-index: 0;
 }
+
 
 /*--------------------------------------------------------------
   # Notice
@@ -787,19 +799,19 @@ a {
 
 
 .partners {
-	margin-top: 50px;
-	padding: 0px 0px;
+    margin-top: 50px;
+    padding: 0px 0px;
     margin-bottom: -50px;
 }
 
 .partners .owl-item {
-	text-align: center;
-	cursor: pointer;
+    text-align: center;
+    cursor: pointer;
 }
 
 .partners .partner-item img {
-	max-width: 156px;
-	margin: auto;
+    max-width: 156px;
+    margin: auto;
     background-color: var(--bolder-blue);
     height: 100px;
 }

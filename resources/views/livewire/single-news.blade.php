@@ -24,7 +24,6 @@
                         <img src="{{ asset('./asset/img/news/') }}/{{ $news->image }}" alt="">
                     </div>
                     <div class="news-details">
-
                         <h3><a>{{ $news->title }}</a></h3>
                         <div class="post-date"><a href="#"><i class="fa fa-calendar"></i>
                                 {{ \Carbon\Carbon::parse($news->created_at)->format('M d, Y') }}</a></div>

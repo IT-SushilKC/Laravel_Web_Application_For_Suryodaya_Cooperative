@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -59,10 +59,12 @@ class LoginController extends Controller
        if( auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password'])) ){
 
         if( auth()->user()->role == 1 ){
+
             return redirect()->route('admin.dashboard')->with('adminlogin-successfully','You are Successfully Login');;
         }
         elseif( auth()->user()->role == 2 ){
-            return redirect()->route('/')->with('userlogin-successfully','Welcome To Dashboard');;
+            $loginuser = User::all();
+            return redirect()->route('/',['loginuser'=>$loginuser])->with('userlogin-successfully','You are Successfully Login');;
         }
 
        }else{

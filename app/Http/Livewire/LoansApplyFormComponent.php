@@ -7,9 +7,11 @@ use App\Models\LoanForm;
 use Livewire\WithFileUploads;
 use App\Notifications\RepliedToThread;
 use Carbon\Carbon;
+use Illuminate\Notifications\Notifiable;
 use Brian2694\Toastr\Facades\Toastr;
 class LoansApplyFormComponent extends Component
 {
+    use notifiable;
     use WithFileUploads;
     public $firstname;
     public $lastname;
@@ -65,9 +67,8 @@ class LoansApplyFormComponent extends Component
         $loandata->zipcode = $this->zipcode;
         $loandata->objective= $this->objective;
         $loandata->save();
-        Auth()->user()->notify(new RepliedToThread());
-        Toastr::success('Form submitted successfully','Success');
-        return redirect()->route('livewire.loans-apply-form');
+        
+        return redirect('/loan');
        
        
     }

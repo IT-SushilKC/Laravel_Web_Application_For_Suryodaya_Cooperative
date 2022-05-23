@@ -23,7 +23,7 @@
                                 @csrf
 								<div class="form-group">
 									<label for="name">Name</label>
-									<input id="name" type="text" class="form-control" name="name"  autofocus placeholder="Enter name" value="{{ old('name') }}">
+									<input type="text" id="name" type="text" class="form-control" name="name"  placeholder="Enter Name" value="{{ old('name') }}">
 									<span class="text-danger">@error('name'){{ $message }}@enderror</span>
 								</div>
 
@@ -53,7 +53,7 @@
 
 								<div class="form-group">
 									<div class="custom-checkbox custom-control">
-										<input type="checkbox" name="agree" id="agree" class="custom-control-input">
+										<input type="checkbox" name="agree" id="agree" class="custom-control-input" required>
 										<label for="agree" class="custom-control-label">I agree to the <a href="#">Terms and Conditions</a></label>
 										<div class="invalid-feedback">
 											You must agree with our Terms and Conditions

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Home_Slider;
 use App\Models\Notice;
 use App\Models\News;
+use App\Models\Team;
 class HomeComponent extends Component
 {
     function showSingleNews($id){
@@ -15,8 +16,9 @@ class HomeComponent extends Component
     public function render()
     {
         $sliders = Home_Slider::all();
+        $team = Team::all();
         $notice = Notice::all();
-        $homenews = News::orderBy('id',"DESC")->paginate(3);
-        return view('livewire.home-component', ['sliders'=>$sliders,'notice'=>$notice,'homenews'=>$homenews])->layout('layouts.base');
+        $homenews = News::orderBy('id',"DESC")->simplePaginate(3);
+        return view('livewire.home-component', ['sliders'=>$sliders,'notice'=>$notice,'homenews'=>$homenews,'team'=>$team])->layout('layouts.base');
     }
 }

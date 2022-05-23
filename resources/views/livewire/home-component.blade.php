@@ -1,18 +1,19 @@
-@if (Session::get('userlogin-successfully'))
-    <div class="alert alert-primary">
-        {{ Session::get('userlogin-successfully') }}
-    </div>
+@if (Session::has('userlogin-successfully'))
+    <script>
+        swal("Thanks!", "{!! Session::get('userlogin-successfully') !!}", "success", {
+            button: "OK",
+        });
+    </script>
 @endif
 <div class="main">
     <!--Carousel Section-->
     <section class="hero">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-
             <div class="carousel-inner">
                 @foreach ($sliders as $item)
                     <div class="carousel-item {{ $item->status == 1 ? 'active' : '' }}">
                         <img class="img-slider text-align-center"
-                            src="{{ asset('./asset/img/slider') }}/{{ $item->image }}" alt="Los Angeles" />
+                            src="{{ asset('./asset/img/slider') }}/{{ $item->image }}" alt="Empty Img" />
                     </div>
                 @endforeach
             </div>
@@ -53,28 +54,26 @@
                     <div class="col-md-4 col-sm-6 ">
                         <div class="services-wrapper services-one">
                             <i class="fa fa-piggy-bank"></i>
-                            <h2>Deposit</h2>
-                            <p class="detail-color">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy nibh euismod tincidunt ut
-                                laoreet.</p>
+                            <h2>Saving</h2>
+                            <p class="detail-color">Suryodaya Cooerative is providing the following saving products for their valued members. And Customer provides different credits.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="services-wrapper services-two">
                             <i class="fa fa-hand-holding-usd"></i>
                             <h2>Loan</h2>
-                            <p class="detail-color">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy nibh euismod tincidunt ut
-                                laoreet.</p>
+                            <p class="detail-color">In cooperation with various consumer shops, discount cards are
+                                being provided to its members
+                                to save them from the rising inflation.
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <div class="services-wrapper services-three">
                             <i class="fa fa-comment-dollar"></i>
                             <h2>Remittance</h2>
-                            <p class="detail-color">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy nibh euismod tincidunt ut
-                                laoreet.</p>
+                            <p class="detail-color">In cooperation with various consumer shops, discount cards are being provided to its members
+                                to save them from the rising inflation.</p>
                         </div>
                     </div>
                 </div>
@@ -96,13 +95,13 @@
 
                             <div class="news-item wow slideInUp" data-wow-duration=".8s">
 
-                                <img class="img-fluid" src="{{ asset('./asset/img/news') }}/{{ $items->image }}"
-                                    alt="">
+                                <img class="img-fluid"
+                                    src="{{ asset('./asset/img/news') }}/{{ $items->image }}" alt="">
                                 <div class="down-content">
                                     <div class="post-date"><i class="fa fa-calendar"></i>
                                         {{ \Carbon\Carbon::parse($items->created_at)->format('M d, Y') }}</div>
-                                    <h4>
-                                        {{ \Illuminate\Support\Str::limit($items->title, 30) }}</h4>
+                                    <h4><a href="single-news/{{ $items->id }}">
+                                        {{ \Illuminate\Support\Str::limit($items->title, 39) }}</a></h4>
                                     <p>{{ \Illuminate\Support\Str::limit($items->description, 150) }}</p>
                                     <a href="single-news/{{ $items->id }}" class="filled-button"><i
                                             class="fa fa-arrow-right mr-1"> </i>Read More</a>
@@ -113,7 +112,10 @@
                     @endforeach
 
 
-                </div>{{ $homenews->links() }}
+                </div>
+                <div class="text-center">
+                    {{ $homenews->links() }}
+                </div>
 
             </div>
 
@@ -140,32 +142,37 @@
                         <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="fa fa-leaf"></i>
-                                <h4>Agriculture Loan</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip
+                                <h4><a href="/loans"> Agriculture Loan</a></h4>
+                                <p>RMCL pleasure to announce agriculture loan to finance for agriculture production,
+                                    processing, purchase of seeds, fertilizers, insecticides, agriculture equipment..
                                 </p>
                             </div>
                         </div>
                         <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="fa fa-building"></i>
-                                <h4>Business Loan</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip
+                                <h4><a href="/loans">Business Loan</a></h4>
+                                <p>Business Loan has developed for operation and extension business. it also provides to
+                                    non establish Business.
                                 </p>
                             </div>
                         </div>
                         <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="fa fa-briefcase"></i>
-                                <h4>Career Loan</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                <h4><a href="/loans">Career Loan</a></h4>
+                                <p>
+                                    This loan is provided to operate & extend small and medium size industry.
                                 </p>
                             </div>
                         </div>
                         <div class="col-xl-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="fa fa-user-graduate"></i>
-                                <h4>Education Loan</h4>
-                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                <h4><a href="/loans">Education Loan</a></h4>
+                                <p>Education loan has been designed to complete studies for those student who do not
+                                    have financial recourse to complete study in Nepal and Abroad..
+                                </p>
                             </div>
                         </div>
 
@@ -176,65 +183,41 @@
         </div>
     </section><!-- Loans -->
 
-    <section id="details" class="details">
+    <section id="team" class="team">
         <div class="container">
-
-            <div class="row content">
-                <div class="col-md-4" data-aos="fade-right">
-                    <img src="{{ asset('./asset/img/details-3.png') }}" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-8 pt-5" data-aos="fade-up">
-                    <h3>ATM</h3>
-                    <p class="font-italic ">Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia
-                        minima
-                        quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
-                    <ul class="details-color">
-                        <li><i class="fa fa-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="fa fa-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.
-                        </li>
-                        <li><i class="fa fa-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.
-                        </li>
-                    </ul>
-                    <p class="details-color">
-                        Qui consequatur temporibus. Enim et corporis sit sunt harum praesentium suscipit ut voluptatem.
-                        Et nihil magni debitis consequatur est.
-                    </p>
-                    <p class="details-color">
-                        Suscipit enim et. Ut optio esse quidem quam reiciendis esse odit excepturi. Vel dolores rerum
-                        soluta explicabo vel fugiat eum non.
-                    </p>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading mb-2">
+                        <h2>Management <em>Teams</em></h2>
+                        <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="row content">
-                <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                    <img src="{{ asset('./asset/img/details-4.png') }}" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                    <h3>Mobile Banking Services</h3>
-                    <p class="font-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
-                    </p>
-                    <p class="details-color">
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                    <ul class="details-color">
-                        <li><i class="fa fa-check"></i> Et praesentium laboriosam architecto nam .</li>
-                        <li><i class="fa fa-check"></i> Eius et voluptate. Enim earum tempore aliquid. Nobis et sunt
-                            consequatur. Aut repellat in numquam velit quo dignissimos et.</li>
-                        <li><i class="fa fa-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.
-                        </li>
-                    </ul>
+            <div class="row mt-5">
+                <div class="owl-team owl-carousel">
+                    @foreach ($team as $items)
+                        <div class="col-lg-4">
+                            <div class="team-member">
+                                <img class="mx-auto rounded-circle " style="width:200px;"
+                                    src="{{ asset('./asset/img/Team') }}/{{ $items->image }}" alt="..." />
+                                <div class="text-center mt-3">
+                                    <h4 style="width:200px; text-align:center;">{{$items->name}}</h4>
+                                    <p style="width:200px;" class="text-muted">{{$items->post}}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </section><!-- End Details Section -->
+    </section><!-- End Team Section -->
+
+    <div style="text-align: center;">
+        <img src="{{asset('./asset/img/growth.png')}}" alt="">
+    </div>
+
     <div class="partners">
         <div class="container">
             <div class="row">

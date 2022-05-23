@@ -7,15 +7,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
+                    <div class="panel-heading d-flex justify-content-between">
+                       
                             <div class="col-md-6">
                                 <h4>Add New Notice</h4>
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.shownotice')}}" class="btn btn-success mb-2">All Notice</a>
                             </div>
-                        </div>
+                      
                     </div>
                     <div class="panel-body">
                  

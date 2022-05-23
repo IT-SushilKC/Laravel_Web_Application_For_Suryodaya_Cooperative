@@ -4,15 +4,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
+                    <div class="panel-heading  d-flex justify-content-between">
+                        
                             <div class="col-md-6">
                                 <h4>Add New News</h4>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.shownews')}}" class="btn btn-success">All News</a>
+                                <a href="{{route('admin.shownews')}}" class="btn btn-success mb-3">All News</a>
                             </div>
-                        </div>
+                        
                     </div>
                 
                     <div class="panel-body">

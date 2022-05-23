@@ -1,0 +1,54 @@
+
+    @media (max-width: 1199.98px) {
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive {
+    border: 0;
+  }
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive {
+  border: 0;
+}
+
+
+.card-people .weather-info {
+  position: absolute;
+  top: 30px;
+  right: 24px;
+}
+
+.card-people .weather-info sup {
+  font-size: 18px;
+}
+
+.card-people .weather-info .location {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.weather-info {
+  position: absolute;
+  top: 30px;
+  right: 24px;
+}
+
+.weather-info sup {
+  font-size: 18px;
+}
+
+.weather-info .location {
+  font-size: 20px;
+  margin-bottom: 0;
+}

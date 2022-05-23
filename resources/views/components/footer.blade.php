@@ -61,13 +61,16 @@
           </div>
       </div>
   </footer><!-- End Footer -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    
   <script src="{{ asset('./asset/js/parsley.min.js') }}"></script>
   <script src="{{ asset('./asset/js/script.js') }}"></script>
   <script src="{{ asset('./asset/Carousel/owl.carousel.min.js') }}"></script>
@@ -109,8 +112,8 @@
           navigateTo(0);
       });
   </script>
-
-
+  <script>
+ 
   @livewireScripts
 
   </body>

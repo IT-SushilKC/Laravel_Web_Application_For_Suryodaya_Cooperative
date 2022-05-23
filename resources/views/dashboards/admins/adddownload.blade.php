@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
+                    <div class="panel-heading   d-flex  justify-content-between">
+                        
                             <div class="col-md-6">
                                 <h4>Add New Files</h4>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.slidershow')}}" class="btn btn-success">All Files</a>
-                            </div>
+                                <a href="{{route('admin.showdownload')}}" class="btn btn-success mb-3">All Files</a>
+                         
                         </div>
                     </div>
                     

@@ -1,58 +1,50 @@
 @include('dashboards.admins.components.header')
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{route('admin.loanapplyform')}}">Back</a></li>
+    <li class="breadcrumb-item" aria-current="page">Cu-Details</li>
+  </ol>
+</nav>
 <section id="about" class="about">
-
     <!-- ======= About Me ======= -->
     <div class="about-me container bg-white p-3">
-
       <div class="section-title">
-        <h3 class="mb-4 text-dark text-center text-bold">Learn more about Sushil KC</h3>
-       
+        <h3 class="mb-4 text-dark text-center text-bold">Learn more about {{\Illuminate\Support\Str::ucfirst($loansabout->user)}}</h3>
       </div>
-
       <div class="row mt-3">
         <div class="col-lg-2" data-aos="fade-right">
-          <img src="{{ asset('./asset/img/details-4.png') }}" class="img-fluid" alt="">
+          <img src="{{ asset('./asset/img/loans') }}/{{ $loansabout->image }}" class="img-fluid" alt="">
         </div>
         <div class="col-lg-10 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3 class="mb-2">Sushil KC</h3>
+          <h3 class="mb-2">{{\Illuminate\Support\Str::ucfirst($loansabout->user)}}</h3>
           <p class="font-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
+            In this clients loans apply for different purpose.
           </p>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-lg-6">
               <ul>
-                <li><i class="mbi mbi-right-arrow"></i> <strong>Father Name: </strong> 1 May 1995</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Mother Name: </strong> www.example.com</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Loan Type: </strong> +123 456 7890</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Education: </strong> City : New York, USA</li>
-                <li><i class="mbi mbi-right-arrow"></i> <strong>Province: </strong> 1 May 1995</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Date of Birth: </strong> www.example.com</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Age: </strong> +123 456 7890</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Language: </strong> New York, USA</li>
-                
+                <li><i class="icofont-rounded-right"></i> <strong>Loan Type: </strong>{{\Illuminate\Support\Str::ucfirst($loansabout->loan)}}</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Email: </strong>{{$loansabout->email}}</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Phone: </strong>{{$loansabout->phone}}</li>
+                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> {{\Illuminate\Support\Str::ucfirst($loansabout->city)}}</li>
               </ul>
             </div>
             <div class="col-lg-6">
-              <ul><i class="mdi mdi-phone-outline"></i>
-                <li><i class="mdi mdi-rounded-right"></i> <strong>Phone Number:</strong> 30</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Telephone:</strong> Master</li>
-                <li><i class="mdi mdi-phone-outline"></i> <strong>E-mail:</strong> email@example.com</li>
-                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> Available</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Temporary Address:</strong> www.example.com</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Permanent Address:</strong> +123 456 7890</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Zip Code:</strong> City : New York, USA</li>
+              <ul>
+                <li><i class="icofont-rounded-right"></i> <strong>Provience:</strong> {{$loansabout->provience}}</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Premanent Address:</strong> {{\Illuminate\Support\Str::ucfirst($loansabout->peraddress)}}</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Temporary Address:</strong> {{\Illuminate\Support\Str::ucfirst($loansabout->tempaddress)}}</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Apply Date: </strong> {{ \Carbon\Carbon::parse($loansabout->created_at)->format('M d, Y') }}</li>
               </ul>
             </div>
-            <div class="col-lg-12 mt-4">
-                <h3 class="mb-3">Objectives of Loan</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, corporis dolore provident omnis recusandae eaque voluptas eveniet dignissimos. Cum provident voluptas, non molestias nihil enim officia suscipit possimus nesciunt maxime!</p>
+            <div class="col-md-12 mt-3">
+            <h3>Objectives of Loan</h3>
+              <p class="mt-3">{{$loansabout->objective}}</p>
             </div>
           </div>
-         
         </div>
       </div>
-
-    </div><!-- End About Me -->
-
+    </div>
+  </div><!-- End About Me -->
+</section>
 @include('dashboards.admins.components.footer')

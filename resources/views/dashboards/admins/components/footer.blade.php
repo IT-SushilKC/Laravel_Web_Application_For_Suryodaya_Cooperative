@@ -19,6 +19,13 @@
 <script src="{{asset('./admin_asset/js/date-range.js')}}"></script>
 <script src="{{asset('./admin_asset/js/map.js')}}"></script>
 <script src="{{asset('./admin_asset/js/custom.js')}}"></script>
+
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+    } );
+    </script>
+<script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 {!! Toastr::message() !!}
 
 

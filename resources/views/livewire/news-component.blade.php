@@ -13,7 +13,7 @@
     </section>
 
     <section class="main-section ftco-no-pt bg-light ftco-faqs">
-        <div class="container mt-5">
+        <div class="container-fluid mt-5">
             <div class="row">
 
                 <div class="col-lg-9 pl-lg-5 ">
@@ -27,7 +27,7 @@
                                         <div class="post-date"><i class="fa fa-calendar"></i> {{\Carbon\Carbon::parse($items->created_at)->format('M d, Y')}}</div>
                                         <h4>
                                         {{\Illuminate\Support\Str::limit($items->title, 30)}}</h4>
-                                        <p>{{\Illuminate\Support\Str::limit($items->description, 500)}}</p>
+                                        <p>{{\Illuminate\Support\Str::limit($items->description, 300)}}</p>
                                         <a href="single-news/{{$items->id}}" class="filled-button"><i class="fa fa-arrow-right mr-1">
                                             </i>Read More</a>
                                     </div>

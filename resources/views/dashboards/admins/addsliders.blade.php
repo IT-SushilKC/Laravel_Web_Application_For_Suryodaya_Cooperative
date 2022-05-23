@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
+                    <div class="panel-heading  d-flex  justify-content-between">
+                      
                             <div class="col-md-6 d-xl-inline">
                                 <h4>Add New Slide</h4>
                             </div>
                             <div class="col-md-6 d-xl-inline">
-                                <a href="{{route('admin.slidershow')}}" class="btn btn-success">All Slides</a>
-                            </div>
+                                <a href="{{route('admin.slidershow')}}" class="btn btn-success mb-3">All Slides</a>
+                      
                         </div>
                     </div>
                     

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Models\VerifyUser;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -50,15 +49,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'favoriteColor'=>'required',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+   
 
     /**
      * Create a new user instance after a valid registration.
@@ -77,36 +68,31 @@ class RegisterController extends Controller
     //     ]);
     // }
 
-    function register(Request $request){
-
-         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'favoriteColor'=>'required',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-         ]);
-
-         /** Make avata */
-
-
-         $user = new User();
-         $user->name = $request->name;
-         $user->email = $request->email;
-         $user->role = 2;
-         $user->favoriteColor = $request->favoriteColor;
    
-         $user->password = \Hash::make($request->password);
-         $user->save();
-       
+    public function register(Request $request){
 
-         if( $user->save() ){
+        $request->validate([
+           'name' => ['required', 'string', 'max:255'],
+           'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+           'favoriteColor'=>'required',
+           'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        $user = new User();
+        $user->user = $request->name;
+        $user->email = $request->email;
+        $user->role = 2;
+        $user->favoriteColor = $request->favoriteColor;
+   
+        $user->password = \Hash::make($request->password);
 
-            return redirect()->back()->with('success','You are Successfully Register. Now Login');
+        if( $user->save() ){
+
+            return redirect()->back()->with('success','You are now successfully registerd');
          }else{
              return redirect()->back()->with('error','Failed to register');
          }
 
     }
 
-   
+
 }

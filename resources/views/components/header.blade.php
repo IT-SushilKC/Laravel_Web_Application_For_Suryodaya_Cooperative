@@ -67,7 +67,10 @@
                             <a href="/login" class="login-panel"><i
                             class="fa fa-user"></i>login</a>
                         @endif
-                    <div class="lan-selector"></div>
+                    <div class="lan-selector">
+
+                       
+                    </div>
                  </div>
                     
                  </div>
@@ -122,26 +125,23 @@
                         <ul>
                             <li><a href="/about">About Suryodaya</a></li>
                             <li><a href="/mission">Mission Vision & Objectives</a></li>
-                            <li><a href="/chairmanmgs">Chairman Message</a></li>
-                            <li><a href="/managermgs">Manager Message</a></li>
-                            <li><a href="/team">Management Team</a></li>
-                            <li><a href="memberships">Membership</a></li>
+                            <li><a href="/chairmanmsg">Chairman Message</a></li>
+                            <li><a href="/managermsg">Manager Message</a></li>
+                            <li><a href="/managementteam">Management Team</a></li>
+                            <li><a href="/membership">Membership</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="service"><span>Services</span> <i class="fas fa-chevron-down"></i></a>
+                    <li class="dropdown"><a><span>Services</span> <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="loans">Loans Service</a></li>
                             <li><a href="saving">Saving Service</a></li>
-                            <li><a href="bank">Banking Service</a></li>
                             <li><a href="amb">Ambiulance Service</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="events">Events</a></li>
-                    <li><a class="nav-link scrollto" href="event">Events</a></li>
-                    <li><a class="nav-link scrollto" href="news">News</a></li>
-                    <li><a class="nav-link scrollto" href="gallery">Gallery</a></li>
-                    <li><a class="nav-link scrollto" href="download">Download</a></li>
-                    <li><a class="nav-link scrollto" href="contact">Contact us</a></li>
+                    <li><a class="nav-link scrollto" href="/news">News</a></li>
+                    <li><a class="nav-link scrollto" href="/gallery">Gallery</a></li>
+                    <li><a class="nav-link scrollto" href="downloads">Download</a></li>
+                    <li><a class="nav-link scrollto" href="/contact">Contact us</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

@@ -53,4 +53,8 @@ class User extends Authenticatable
             return asset('users/images/no-image.png');
         }
     }
+    public function setNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }
